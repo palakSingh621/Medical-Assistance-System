@@ -64,7 +64,7 @@ function Hero() {
 
             <div className="text-stats-container">
               <p>70</p>
-              <p>Billion of Parameters</p>
+              <p>Billion+ Parameters</p>
             </div>
           </div>
         </div>

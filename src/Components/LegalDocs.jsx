@@ -18,7 +18,7 @@ function LegalDocs() {
       <div className="legal-text-content">
         <p className="legal-title">General Info</p>
         <p className="legal-description">
-          Welcome to Health Plus, your trusted online healthcare platform. Our
+          Welcome to Medical Assistance System, your trusted online healthcare platform. Our
           mission is to provide accessible and personalized healthcare services
           to individuals seeking expert medical advice and treatment. By using
           our platform, you agree to the terms outlined in our Privacy Policy
@@ -35,7 +35,7 @@ function LegalDocs() {
 
         <p className="legal-title">Terms of Service</p>
         <p className="legal-description">
-          When using Health Plus, you agree to our Terms of Service. This
+          When using Medical Assistance System, you agree to our Terms of Service. This
           includes guidelines for using our platform, interacting with doctors,
           and the responsibilities of both parties. It's essential to understand
           these terms to ensure a smooth experience for all users.
@@ -43,8 +43,7 @@ function LegalDocs() {
 
         <p className="legal-title">Consultations</p>
         <p className="legal-description">
-          Our platform connects you with expert doctors who provide online
-          consultations. These consultations are not a replacement for in-person
+          These consultations are not a replacement for in-person
           medical visits but serve as a convenient option for medical advice,
           prescriptions, and guidance. It's crucial to provide accurate and
           complete information to receive the best possible care.
@@ -52,7 +51,7 @@ function LegalDocs() {
 
         <p className="legal-title">How it Works</p>
         <p className="legal-description">
-          Health Plus is designed to simplify healthcare access. You can choose
+          Medical Assistance System is designed to simplify healthcare access. You can choose
           a specialist, schedule an appointment, and engage in a virtual
           consultation. Our specialists offer personalized advice and treatment
           plans tailored to your needs. Please remember that emergencies require

@@ -1,23 +1,53 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../Styles/DiagnosForm.css"
 
 function DiagnosForm() {
+  const navigate = useNavigate(); // Use navigate hook from react-router-dom
   const [diseaseOrCondition, setDiseaseOrCondition] = useState("");
   const [symptoms, setSymptoms] = useState("");
   const [age, setAge] = useState(0);
   const [gender, setGender] = useState("Male"); // Default value for gender
   const [previousDiseases, setPreviousDiseases] = useState("");
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    // Here you can handle form submission, e.g., send data to backend or display a message
-    toast.success("Request for Assistance Submitted!", {
-      position: toast.POSITION.TOP_CENTER,
-    });
+    const formData = {
+      diseaseOrCondition,
+      symptoms,
+      age,
+      gender,
+      previousDiseases,
+    };
+
+    try {
+      const response = await fetch("https://example.com/submit-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form data");
+      }
+
+      const responseData = await response.json(); // Parse JSON response
+
+
+      toast.success("Request for Assistance Submitted!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+
+      navigate("/results", { state: { responseData } });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to submit form. Please try again later.");
+    }
   };
 
   return (
