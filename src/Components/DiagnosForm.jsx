@@ -5,26 +5,25 @@ import "react-toastify/dist/ReactToastify.css";
 import "../Styles/DiagnosForm.css"
 
 function DiagnosForm() {
-  const navigate = useNavigate(); // Use navigate hook from react-router-dom
-  const [diseaseOrCondition, setDiseaseOrCondition] = useState("");
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
   const [symptoms, setSymptoms] = useState("");
   const [age, setAge] = useState(0);
-  const [gender, setGender] = useState("Male"); // Default value for gender
-  const [previousDiseases, setPreviousDiseases] = useState("");
+  const [gender, setGender] = useState("Male"); 
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     const formData = {
-      diseaseOrCondition,
+      name,
       symptoms,
       age,
-      gender,
-      previousDiseases,
+      gender
     };
+    //navigate("/results");
 
     try {
-      const response = await fetch("https://example.com/submit-data", {
+      const response = await fetch("http://54.174.166.149:8000/api/health-recommendation/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +35,7 @@ function DiagnosForm() {
         throw new Error("Failed to submit form data");
       }
 
-      const responseData = await response.json(); // Parse JSON response
+      const responseData = await response.json(); 
 
 
       toast.success("Request for Assistance Submitted!", {
@@ -65,11 +64,11 @@ function DiagnosForm() {
 
         <form className="form-content" onSubmit={handleFormSubmit}>
           <label>
-            Please enter the disease or condition:
+            Name:
             <input
               type="text"
-              value={diseaseOrCondition}
-              onChange={(e) => setDiseaseOrCondition(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
           </label>
@@ -107,16 +106,6 @@ function DiagnosForm() {
               <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
-          </label>
-
-          <br />
-          <label>
-            Please enter the diseases you have been previously diagnosed with:
-            <input
-              type="text"
-              value={previousDiseases}
-              onChange={(e) => setPreviousDiseases(e.target.value)}
-            />
           </label>
 
           <br />
