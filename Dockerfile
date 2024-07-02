@@ -1,8 +1,8 @@
-FROM node:20-alpine
+FROM node:20
 
-WORKDIR /App
+WORKDIR /app
 
-COPY package.json .
+COPY package*.json ./
 
 # Install any needed packages specified in requirements.txt
 RUN npm install
@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm","run","dev"]
+CMD ["npm","run","dev"] 
